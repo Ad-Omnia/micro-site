@@ -1,4 +1,6 @@
-# Plataforma de Comando Operacional Unificado e Inteligência Preditiva para Gestão de Crises e Emergências
+# Ad-Omnia: Plataforma de Comando Operacional Unificado e Inteligência Preditiva para Gestão de Crises e Emergências
+
+> aviso: isto é WIP
 
 Projeto em Engenharia Informática (43675) · Licenciatura em Engenharia Informática · Universidade de Aveiro · 2026/2027
 
