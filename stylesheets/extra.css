@@ -1,0 +1,29 @@
+/* Dá ao logo um fundo circular subtil para se manter visível
+   tanto no cabeçalho claro como no escuro (o logo tem zonas
+   brancas/transparentes que, de outra forma, se perdem). */
+.md-header__button.md-logo {
+  padding: 4px;
+}
+
+.md-header__button.md-logo img,
+.md-header__button.md-logo svg {
+  background-color: rgba(0, 0, 0, 0.08);
+  border-radius: 50%;
+  padding: 3px;
+}
+
+[data-md-color-scheme="slate"] .md-header__button.md-logo img,
+[data-md-color-scheme="slate"] .md-header__button.md-logo svg {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+/* Em modo escuro, o primary "white" faz o cabeçalho seguir a cor de
+   fundo da página em vez de ter uma cor sólida própria, e o texto
+   assume a cor pensada para fundo claro (fica ilegível). Aqui
+   sobrescrevemos as variáveis de cor de fundo e de texto do
+   cabeçalho/abas, para ficar escuro com texto branco legível. */
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color: #14171c;
+  --md-primary-bg-color: #ffffff;
+  --md-primary-bg-color--light: rgba(255, 255, 255, 0.7);
+}
