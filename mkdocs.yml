@@ -1,0 +1,68 @@
+site_name: Plataforma de Comando Operacional Unificado
+site_description: Projeto em Engenharia Informática 2026/2027 - Universidade de Aveiro
+# Ajustar: <org>.github.io -> https://<org>.github.io/ ; repo normal -> https://<org>.github.io/<repo>/
+site_url: https://ad-omnia.github.io/micro-site/
+repo_url: https://github.com/Ad-Omnia/micro-site
+repo_name: Ad-Omnia/micro-site
+
+extra_css:
+  - stylesheets/extra.css
+
+theme:
+  name: material
+  language: pt
+  logo: assets/logo.png
+  features:
+    - navigation.instant
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.top
+    - content.code.copy
+  font:
+    text: Roboto
+    code: Roboto Mono
+  palette:
+    - scheme: default
+      primary: white
+      accent: green
+      toggle:
+        icon: material/weather-night
+        name: Modo escuro
+    - scheme: slate
+      primary: white
+      accent: green
+      toggle:
+        icon: material/weather-sunny
+        name: Modo claro
+
+markdown_extensions:
+  - admonition
+  - tables
+  - attr_list
+  - toc:
+      permalink: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+# Ir descomentando/expandindo à medida que as páginas forem criadas
+nav:
+  - Início: index.md
+  - Milestones:
+      - MS1 - Fase de Inception:
+          - Descrição do projeto: milestones/ms1-inception/descricao-projeto.md
+          - Calendário do projeto: milestones/ms1-inception/calendario.md
+          - Plano de comunicação: milestones/ms1-inception/plano-comunicacao.md
+      - MS2 - Fase de Elaboration:
+          - Em breve: milestones/ms2-elaboration/em-breve.md
+      - MS3 - Fase de Construction:
+          - Em breve: milestones/ms3-construction/em-breve.md
+      - MS4 - Fase de Transition:
+          - Em breve: milestones/ms4-transition/em-breve.md
+      - Calendário geral: milestones/calendario-geral.md
+  # - Equipa: equipa.md
+  # - Arquitetura: arquitetura.md
+  # - Relatórios e apresentações: relatorios.md
