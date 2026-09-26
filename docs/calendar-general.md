@@ -6,8 +6,6 @@ hide:
 
 # Calendário geral { #calendario-geral }
 
-Visão geral da jornada do projeto Ad-Omnia, fase a fase.
-
 <div class="ad-timeline" markdown="1">
 
 <span class="ad-timeline-phase">Inception</span>
