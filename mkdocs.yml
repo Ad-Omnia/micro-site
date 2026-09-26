@@ -54,7 +54,7 @@ markdown_extensions:
 
 # Ir descomentando/expandindo à medida que as páginas forem criadas
 nav:
-  - Início: index.md
+  - Documentation: documentation.md
   - Milestones:
       - MS1 - Fase de Inception:
           - Descrição do projeto: milestones/ms1-inception/descricao-projeto.md
@@ -67,7 +67,8 @@ nav:
       - MS4 - Fase de Transition:
           - Em breve: milestones/ms4-transition/em-breve.md
       - Calendário geral: milestones/calendario-geral.md
-  # - Equipa: equipa.md
+  - Minutes
+  - Team: team.md
   # - Arquitetura: arquitetura.md
   # - Relatórios e apresentações: relatorios.md
 

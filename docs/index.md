@@ -25,43 +25,6 @@ hide:
 
 <div class="ad-section" markdown="1">
 
-## Acesso rápido
-
-<div class="ad-quick-grid" markdown="1">
-
-<a href="#resumo" class="ad-qcard" markdown="1">
-**Resumo**
-
-Visão geral da plataforma e do problema a resolver
-</a>
-
-<a href="#objetivos" class="ad-qcard" markdown="1">
-**Objetivos**
-
-Os cinco pilares do projeto
-</a>
-
-<a href="#equipa" class="ad-qcard" markdown="1">
-**Equipa**
-
-Quem está a construir o Ad-Omnia
-</a>
-
-<a href="#orientacao" class="ad-qcard" markdown="1">
-**Orientação**
-
-Docentes e advisors do projeto
-</a>
-
-<a href="#ligacoes" class="ad-qcard" markdown="1">
-**Ligações**
-
-Repositório e outros recursos
-</a>
-
-</div>
-</div>
-
 ## Resumo { #resumo }
 
 Plataforma de comando e controlo orientada à gestão de grandes eventos, segurança pública e resposta a crises.
