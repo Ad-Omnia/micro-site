@@ -27,3 +27,346 @@
   --md-primary-bg-color: #ffffff;
   --md-primary-bg-color--light: rgba(255, 255, 255, 0.7);
 }
+
+/* Troca a imagem do logo consoante o modo: preto em modo claro
+   (definido em mkdocs.yml como logo por omissão), branco em modo
+   escuro. */
+[data-md-color-scheme="slate"] .md-header__button.md-logo img,
+[data-md-color-scheme="slate"] .md-nav__button.md-logo img {
+  content: url("../assets/logo-colour-white.png");
+}
+
+/* =====================================================================
+   Landing page (index.md) — identidade visual Ad-Omnia
+   Paleta retirada do template PowerPoint (Lens): azul, verde-água,
+   roxo sobre fundo escuro #14171c/#161616.
+   ===================================================================== */
+
+:root {
+  --ad-blue: #2b6fe0;
+  --ad-blue-light: #3d8bff;
+  --ad-teal: #0e9e86;
+  --ad-teal-light: #2ec4aa;
+  --ad-purple: #8b35e0;
+  --ad-purple-light: #a03cff;
+  --ad-dark: #14171c;
+
+  /* Fundo/texto do hero e da CTA final: claro (creme do PowerPoint)
+     por omissão, escuro em modo slate. */
+  --ad-hero-bg: #f3f2ed;
+  --ad-hero-fg: #14171c;
+  --ad-hero-fg-muted: #55606e;
+  --ad-hero-fg-faint: #7a8593;
+  --ad-badge-bg: rgba(20, 23, 28, 0.06);
+  --ad-badge-border: rgba(20, 23, 28, 0.14);
+  --ad-btn-secondary-border: rgba(20, 23, 28, 0.28);
+  --ad-glow-1: rgba(43, 111, 224, 0.14);
+  --ad-glow-2: rgba(139, 53, 224, 0.12);
+  --ad-glow-3: rgba(14, 158, 134, 0.12);
+}
+
+[data-md-color-scheme="slate"] {
+  --ad-hero-bg: #14171c;
+  --ad-hero-fg: #f4f2ec;
+  --ad-hero-fg-muted: #b9c2d0;
+  --ad-hero-fg-faint: #9aa5b5;
+  --ad-badge-bg: rgba(255, 255, 255, 0.08);
+  --ad-badge-border: rgba(255, 255, 255, 0.18);
+  --ad-btn-secondary-border: rgba(255, 255, 255, 0.35);
+  --ad-glow-1: rgba(43, 111, 224, 0.35);
+  --ad-glow-2: rgba(139, 53, 224, 0.3);
+  --ad-glow-3: rgba(14, 158, 134, 0.28);
+}
+
+/* Evita scroll horizontal introduzido pelas secções full-bleed.
+   Importante: aplicar isto ao body (ou html) parte o "position: sticky"
+   do cabeçalho/abas, porque deixam de ter um ancestral com overflow
+   visível. O .md-header e o .md-tabs são IRMÃOS do .md-container no
+   DOM do Material, por isso aplicar aqui não os afeta. */
+.md-container {
+  overflow-x: hidden;
+}
+
+/* técnica "full-bleed": estica um elemento para fora do contentor
+   central do Material, ocupando toda a largura do ecrã */
+.ad-hero,
+.ad-full-bleed {
+  position: relative;
+  left: 50%;
+  right: 50%;
+  width: 100vw;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
+/* -------------------- Hero -------------------- */
+
+/* Remove o padding/margem que o Material injeta por cima do primeiro
+   elemento do conteúdo, para o hero encostar mesmo às abas — sem
+   depender de "adivinhar" um valor de margin negativo. */
+.md-content__inner:has(> .ad-hero) {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+/* O toc.permalink acrescenta um "¶" a todos os títulos. Nos restantes
+   sítios só aparece ao passar o rato (comportamento por omissão do
+   Material), mas no h1 do hero fica sempre visível — aqui escondemo-lo
+   só nesse caso específico. */
+.ad-hero h1 .headerlink {
+  display: none;
+}
+
+.ad-hero {
+  margin-bottom: 2.5rem;
+  padding: 4.5rem 1.5rem 4rem;
+  background:
+    radial-gradient(1100px 550px at 15% -10%, var(--ad-glow-1), transparent 60%),
+    radial-gradient(900px 500px at 90% 5%, var(--ad-glow-2), transparent 55%),
+    radial-gradient(900px 500px at 50% 120%, var(--ad-glow-3), transparent 60%),
+    var(--ad-hero-bg);
+  color: var(--ad-hero-fg);
+  text-align: center;
+}
+
+.ad-hero-inner {
+  max-width: 46rem;
+  margin: 0 auto;
+}
+
+.ad-badge {
+  display: inline-block;
+  padding: 0.35rem 1rem;
+  border-radius: 999px;
+  background: var(--ad-badge-bg);
+  border: 1px solid var(--ad-badge-border);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--ad-hero-fg-muted);
+}
+
+.ad-hero h1 {
+  font-size: 3.6rem;
+  font-weight: 800;
+  margin: 1.1rem 0 0.6rem;
+  background: linear-gradient(90deg, var(--ad-teal-light), var(--ad-blue-light) 55%, var(--ad-purple-light));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.ad-tagline {
+  font-size: 1.15rem;
+  color: var(--ad-hero-fg-muted);
+  max-width: 38rem;
+  margin: 0 auto 2rem;
+  line-height: 1.5;
+}
+
+.ad-btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  justify-content: center;
+  margin-bottom: 1.6rem;
+}
+
+.ad-btn {
+  display: inline-block;
+  padding: 0.7rem 1.5rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none !important;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.ad-btn:hover {
+  transform: translateY(-2px);
+}
+
+.ad-btn-primary {
+  background: linear-gradient(90deg, var(--ad-blue), var(--ad-purple));
+  color: #fff !important;
+}
+
+.ad-btn-secondary {
+  background: transparent;
+  color: var(--ad-hero-fg) !important;
+  border: 1px solid var(--ad-btn-secondary-border);
+}
+
+.ad-wip {
+  display: inline-block;
+  font-size: 0.8rem;
+  color: var(--ad-hero-fg-faint);
+}
+
+/* -------------------- Acesso rápido -------------------- */
+
+.ad-section {
+  margin-bottom: 2.5rem;
+}
+
+.ad-section h2 {
+  text-align: center;
+}
+
+.ad-quick-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(11.5rem, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.ad-qcard {
+  display: block;
+  padding: 1.1rem 1.2rem;
+  border-radius: 0.6rem;
+  background: var(--md-code-bg-color);
+  border: 1px solid var(--md-default-fg-color--lightest);
+  text-decoration: none !important;
+  color: var(--md-default-fg-color) !important;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.ad-qcard:hover {
+  border-color: var(--ad-blue);
+  transform: translateY(-2px);
+}
+
+.ad-qcard strong {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-size: 1rem;
+}
+
+.ad-qcard span,
+.ad-qcard p {
+  font-size: 0.85rem;
+  color: var(--md-default-fg-color--light);
+  margin: 0;
+}
+
+/* -------------------- Objetivos (features) -------------------- */
+
+.ad-features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(13.5rem, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.ad-feature-card {
+  padding: 1.6rem 1.3rem;
+  border-radius: 0.75rem;
+  background: var(--md-code-bg-color);
+  border: 1px solid var(--md-default-fg-color--lightest);
+  text-align: center;
+}
+
+.ad-feature-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  margin-bottom: 0.9rem;
+  color: #fff;
+  background: linear-gradient(135deg, var(--ad-blue), var(--ad-purple));
+}
+
+.ad-feature-icon svg {
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+.ad-feature-card p {
+  font-size: 0.88rem;
+  color: var(--md-default-fg-color--light);
+  margin: 0.4rem 0 0;
+}
+
+/* -------------------- Arquitetura -------------------- */
+
+.ad-card {
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  background: var(--md-code-bg-color);
+  border: 1px solid var(--md-default-fg-color--lightest);
+}
+
+.ad-arch-card .mermaid {
+  display: flex;
+  justify-content: center;
+}
+
+/* -------------------- Equipa -------------------- */
+
+.ad-team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr));
+  gap: 1.25rem;
+  margin: 1.5rem 0;
+}
+
+.ad-avatar-card {
+  text-align: center;
+}
+
+.ad-avatar-card p {
+  margin: 0.2rem 0 0;
+  font-size: 0.82rem;
+  color: var(--md-default-fg-color--light);
+}
+
+.ad-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4.2rem;
+  height: 4.2rem;
+  margin: 0 auto 0.6rem;
+  border-radius: 50%;
+  font-weight: 800;
+  font-size: 1.15rem;
+  color: #fff;
+  background: linear-gradient(135deg, var(--c1, var(--ad-blue)), var(--c2, var(--ad-purple)));
+}
+
+/* -------------------- CTA final -------------------- */
+
+.ad-cta {
+  margin-top: 3rem;
+  padding: 3.5rem 1.5rem;
+  text-align: center;
+  background:
+    radial-gradient(900px 500px at 20% 0%, var(--ad-glow-1), transparent 60%),
+    radial-gradient(900px 500px at 85% 100%, var(--ad-glow-2), transparent 60%),
+    var(--ad-hero-bg);
+  color: var(--ad-hero-fg);
+}
+
+.ad-cta-inner {
+  max-width: 34rem;
+  margin: 0 auto;
+}
+
+.ad-cta h3 {
+  color: var(--ad-hero-fg);
+  font-size: 1.6rem;
+  margin-bottom: 0.6rem;
+}
+
+.ad-cta p {
+  color: var(--ad-hero-fg-muted);
+  margin-bottom: 1.6rem;
+}
+
+@media (max-width: 44rem) {
+  .ad-hero h1 {
+    font-size: 2.5rem;
+  }
+}

@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block extrahead %}
+  {{ super() }}
+  {# theme.favicon (definido no mkdocs.yml) já trata do caso "claro"/omissão.
+     Isto acrescenta uma segunda versão para quando o browser/SO está em
+     modo escuro — os dois <link> coexistem, o browser escolhe consoante
+     "prefers-color-scheme". #}
+  <link rel="icon" href="{{ 'assets/logo-colour-white.png' | url }}" media="(prefers-color-scheme: dark)">
+{% endblock %}

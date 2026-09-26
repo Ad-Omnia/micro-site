@@ -1,6 +1,5 @@
-site_name: Plataforma de Comando Operacional Unificado
+site_name: Ad-Omnia
 site_description: Projeto em Engenharia Informática 2026/2027 - Universidade de Aveiro
-# Ajustar: <org>.github.io -> https://<org>.github.io/ ; repo normal -> https://<org>.github.io/<repo>/
 site_url: https://ad-omnia.github.io/micro-site/
 repo_url: https://github.com/Ad-Omnia/micro-site
 repo_name: Ad-Omnia/micro-site
@@ -11,7 +10,11 @@ extra_css:
 theme:
   name: material
   language: pt
-  logo: assets/logo.png
+  favicon: assets/logo-colour-black.png
+  custom_dir: overrides
+  logo: assets/logo-colour-black.png
+  icon:
+    repo: fontawesome/brands/github
   features:
     - navigation.instant
     - navigation.tabs
@@ -20,7 +23,7 @@ theme:
     - navigation.top
     - content.code.copy
   font:
-    text: Roboto
+    text: Calibri
     code: Roboto Mono
   palette:
     - scheme: default
@@ -40,6 +43,7 @@ markdown_extensions:
   - admonition
   - tables
   - attr_list
+  - md_in_html
   - toc:
       permalink: true
   - pymdownx.superfences:
@@ -66,3 +70,10 @@ nav:
   # - Equipa: equipa.md
   # - Arquitetura: arquitetura.md
   # - Relatórios e apresentações: relatorios.md
+
+copyright: "© 2027 Ad-Omnia · Universidade de Aveiro"
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/Ad-Omnia
