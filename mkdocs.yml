@@ -55,6 +55,7 @@ markdown_extensions:
 # Ir descomentando/expandindo à medida que as páginas forem criadas
 nav:
   - Documentation: documentation.md
+  - Journey: calendar-general.md
   - Milestones:
       - MS1 - Fase de Inception:
           - Descrição do projeto: milestones/ms1-inception/descricao-projeto.md

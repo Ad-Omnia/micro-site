@@ -370,3 +370,162 @@
     font-size: 2.5rem;
   }
 }
+
+/* =====================================================================
+   Timeline (jornada do projeto) — linha vertical central com cards
+   alternados, inspirada num layout tipo "journey" de produto.
+   ===================================================================== */
+
+.ad-timeline {
+  position: relative;
+  max-width: 64rem;
+  margin: 2.5rem auto 1rem;
+  padding: 0 1rem;
+}
+
+.ad-timeline-phase {
+  position: relative;
+  z-index: 2;
+  display: block;
+  width: max-content;
+  margin: 0 auto 3rem;
+  padding: 0.45rem 1.4rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--ad-blue), var(--ad-purple));
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* tronco vertical, com um gradiente ao longo das 3 cores da paleta */
+.ad-timeline::before {
+  content: "";
+  position: absolute;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  left: 50%;
+  width: 2px;
+  background: linear-gradient(var(--ad-blue), var(--ad-teal), var(--ad-purple));
+  transform: translateX(-50%);
+  z-index: 0;
+}
+
+.ad-timeline-item {
+  position: relative;
+  width: 100%;
+  margin-bottom: 2.25rem;
+  display: flex;
+}
+
+.ad-timeline-item.ad-timeline-right {
+  justify-content: flex-start;
+  padding-left: calc(50% + 2.2rem);
+}
+
+.ad-timeline-item.ad-timeline-left {
+  justify-content: flex-end;
+  padding-right: calc(50% + 2.2rem);
+}
+
+.ad-timeline-dot {
+  position: absolute;
+  top: 1.7rem;
+  left: 50%;
+  width: 0.85rem;
+  height: 0.85rem;
+  border-radius: 50%;
+  background: var(--ad-hero-bg);
+  border: 3px solid var(--ad-teal);
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.ad-timeline-item--done .ad-timeline-dot {
+  background: var(--ad-teal);
+  border-color: var(--ad-teal);
+}
+
+.ad-timeline-item--active .ad-timeline-dot {
+  border-color: var(--ad-blue);
+  box-shadow: 0 0 0 4px var(--ad-glow-1);
+}
+
+.ad-timeline-card {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 24rem;
+  padding: 1.35rem 1.6rem;
+  border-radius: 0.75rem;
+  background: var(--md-code-bg-color);
+  border: 1px solid var(--md-default-fg-color--lightest);
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.ad-timeline-card:hover {
+  border-color: var(--ad-blue);
+  transform: translateY(-2px);
+}
+
+.ad-timeline-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--md-default-fg-color--light);
+}
+
+.ad-timeline-step {
+  font-weight: 800;
+  color: var(--ad-blue);
+}
+
+.ad-timeline-card h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.15rem;
+}
+
+.ad-timeline-card p {
+  margin: 0 0 0.8rem;
+  font-size: 0.88rem;
+  color: var(--md-default-fg-color--light);
+}
+
+.ad-timeline-link {
+  display: inline-block;
+  padding: 0.45rem 1.05rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--ad-blue), var(--ad-purple));
+  color: #fff !important;
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-decoration: none !important;
+}
+
+.ad-timeline-link:hover {
+  opacity: 0.88;
+}
+
+/* Em ecrãs estreitos, tudo passa para uma única coluna à esquerda do
+   tronco em vez de alternar — evita cards espremidos. */
+@media (max-width: 44rem) {
+  .ad-timeline::before {
+    left: 1.05rem;
+  }
+
+  .ad-timeline-dot {
+    left: 1.05rem;
+  }
+
+  .ad-timeline-item.ad-timeline-right,
+  .ad-timeline-item.ad-timeline-left {
+    justify-content: flex-start;
+    padding-left: 2.6rem;
+    padding-right: 0;
+  }
+}
